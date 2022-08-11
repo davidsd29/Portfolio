@@ -1,0 +1,308 @@
+* {
+	box-sizing: border-box;
+	color: white;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: black;
+}
+
+body div:first-of-type {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* ------------------------------top navigation bar-------------------------------- */
+
+header nav ul {
+	list-style-type: none;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+header nav li {
+	float: left;
+}
+
+#logoImg {
+	width: 100%;
+	height: 10%;
+}
+#logotext{
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+}
+
+header nav li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: rgb(221, 17, 17);
+}
+
+/* ------------------------------main-------------------------------- */
+
+main {
+	padding: 10px 10px;
+	flex: 4;
+}
+
+main p:first-of-type {
+	font-size: large;
+	color: red;
+}
+
+/* --------------------------------Over ons------------------------------ */
+
+.merk ul {
+	list-style-type: none;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	overflow: hidden;
+	font-size: xx-large;
+	background-color: red;
+}
+
+.merk ul li {
+	text-decoration: none;
+	text-align: center;
+	padding: 14px 16px;
+}
+
+.overons {
+	display: flex;
+	margin: 8px;
+}
+
+.overons img {
+	height: 8em;
+	margin-left: auto;
+	margin-right: auto;
+	flex: 1;
+}
+
+article {
+	margin: 15px;
+}
+
+/* ----------------------------------------------finance--------------------------- */
+main > div {
+	display: flex;
+	padding: 16px 14px;
+}
+
+main > div h1 {
+	color: red;
+}
+
+main > div ol {
+	list-style-type: decimal-leading-zero;
+}
+
+main > div li {
+	padding: 10px;
+	font-size: large;
+	border-bottom: 1px solid #ccc;
+}
+#finance {
+	display: grid;
+	justify-content: center;
+}
+
+/* ------------------------------image header-------------------------------- */
+
+main > figure figcaption {
+	text-align: center;
+	background-color: white;
+}
+
+figcaption h1 {
+	color: black;
+}
+
+main > section img {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	flex: 1;
+}
+
+/* ------------------------------products-------------------------------- */
+.product {
+	padding: 10px 10px;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.product img {
+	width: 100%;
+	height: 8em;
+	object-fit: cover;
+      transform: scale(3.8);
+	transition: 1s;
+}
+
+.product img:hover {
+	transform: scale(1);
+}
+
+.product figure {
+	position: relative;
+	width: 270px;
+	margin: 10px;
+	border: 1px solid #ccc;
+	padding: 10px 10px;
+  overflow: hidden;
+}
+
+/* -----------------------------sidebar-------------------------------- */
+aside {
+	padding: 10px 5px;
+	min-width: 150px;
+	flex: 1;
+}
+
+aside ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+aside ul a {
+	font-weight: bold;
+	display: block;
+	color: white;
+	font-size: 30px;
+	text-decoration: none;
+	padding: 10px 10px;
+}
+
+aside ul a:hover,
+aside ul a:active {
+	font-size: 35px;
+	text-decoration: underline;
+}
+
+aside h3 {
+	letter-spacing: 4px;
+}
+
+/* -----------------------------from-------------------------------- */
+textarea {
+	height: 150px;
+}
+
+form div {
+	display: flex;
+	flex-direction: column;
+}
+
+input[type='text'],
+input[type='date'],
+input[type='email'],
+select,
+textarea {
+	background-color: #ccc;
+  color: black;
+	margin: 8px;
+	padding: 10px 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+input[type='text']:focus,
+input[type='date']:focus,
+input[type='email']:focus,
+select:focus,
+textarea:focus {
+  background-color: aliceblue;
+  outline: none;
+  border: 1px solid blueviolet;
+
+}
+
+input[type='submit'],
+button {
+	background-color: red;
+	color: white;
+	border: none;
+	margin: 8px;
+	padding: 10px 10px;
+	border-radius: 4px;
+}
+
+input[type='submit']:hover {
+	background-color: rgba(225, 109, 109, 0.906);
+}
+
+input[type='submit']:active {
+	background-color: rgba(225, 109, 109, 0.906);
+	transform: translateY(4px);
+}
+
+/* -----------------------------footer-------------------------------- */
+footer {
+	display: flex;
+	justify-content: space-around;
+	background-color: #333;
+}
+
+footer h2 {
+	color: red;
+}
+
+footer section,
+div > section {
+	width: 100%;
+	border-right: 3px solid #ccc;
+	padding: 10px 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+footer ul {
+	list-style-type: none;
+}
+
+footer li {
+	padding: 5px;
+}
+
+/* -----------------------------media-------------------------------- */
+@media screen and (max-width: 700px) {
+	body div:first-of-type,
+	footer,
+	.overons,
+	div > section {
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	header nav li,
+	aside,
+	.merk li {
+		float: none;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	img {
+		width: 100%;
+	}
+}
+
+

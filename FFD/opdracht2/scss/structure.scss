@@ -1,0 +1,207 @@
+body {
+	display: grid;
+	place-items: baseline;
+	height: 100vh;
+	background-color: getColor(primary);
+	// background: linear-gradient(0deg, rgba(101, 222, 55, 1) 33%, rgba(255, 252, 0, 1) 55%, rgba(19, 214, 214, 1) 56%);
+}
+
+header {
+	position: sticky;
+	top: 0;
+
+	height: 3em;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 100%;
+	z-index: 101;
+	padding: 1em 3em;
+	background: inherit;
+
+	h1 {
+		color: getColor(quaternary);
+	}
+
+	button {
+		position: relative;
+		border: none;
+		background: none;
+		cursor: pointer;
+
+		@include respond-to(from-lg) {
+			display: none;
+		}
+
+		span {
+			position: absolute;
+			top: 50%;
+			right: 0;
+			height: 0.4em;
+			width: 2em;
+			background-color: getColor(quaternary);
+			border-radius: 0.5em;
+			transform: translate(-50%, -50%);
+
+			&::after,
+			&::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				border-radius: 0.5em;
+				height: 0.4em;
+				width: 3em;
+				background-color: getColor(quaternary);
+			}
+
+			&::after {
+				bottom: 0.8em;
+			}
+
+			&::before {
+				top: 0.8em;
+			}
+		}
+	}
+}
+
+main {
+	position: relative;
+	display: grid;
+	grid-template-columns: 2fr 2fr;
+
+	> section {
+		&:first-of-type {
+			position: relative;
+			padding: 3em;
+
+			h1 {
+				color: getColor(quaternary);
+				text-align: center;
+				font-family: (getMesurements(text-font));
+				font-size: 4em;
+
+				@media (prefers-color-scheme: dark) {
+					text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+				}
+			}
+		}
+	}
+
+	#zerostate {
+		position: absolute;
+		top: 40%;
+		left: 20%;
+		font-style: italic;
+		box-shadow: getColor(display-on);
+		color: getColor(quaternary);
+	}
+}
+
+.fw-draggable {
+	cursor: grab;
+
+	&.dragging {
+		opacity: 0.5;
+	}
+}
+
+.d-none {
+	display: none;
+}
+
+#launch {
+	position: absolute;
+	bottom: -2rem;
+	padding: 0.25em;
+	border-radius: 0.25em;
+	transform: translate(-50%);
+	font-weight: 700;
+	font-size: calc(1.75em); // default size = 16px
+	color: getColor(quaternary);
+	background: #66625e;
+
+	@include respond-to(from-lg) {
+		bottom: 1rem;
+		right: -3rem;
+	}
+	@include respond-to(up-to-lg) {
+		left: 50%;
+	}
+}
+
+.launch-box {
+	position: relative;
+	top: 10%;
+	display: grid;
+	align-content: end;
+	width: 100%;
+	height: 16em;
+	transform-style: preserve-3d;
+	perspective: 10em;
+
+	@include respond-to(from-lg) {
+		width: 22em;
+		top: 35%;
+	}
+
+	section {
+		&:first-of-type {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 0.5em;
+			width: 100%;
+			height: 12rem;
+			background-color: #ccc;
+			transform-style: preserve-3d;
+			transform-origin: center bottom;
+			transform: rotatex(90deg);
+
+			div {
+				position: relative;
+				width: 6em;
+				height: 6em;
+				padding-bottom: 1em;
+				display: flex;
+				justify-content: center;
+				align-items: end;
+				transform-style: preserve-3d;
+				border-radius: 50%;
+				border: 0.25em solid getColor(detail);
+				box-shadow: getColor(display-on);
+				background-color: getColor(secondary);
+
+				&:first-of-type {
+					.fw-set {
+						--mesurement-fw-height: -80vh;
+						--mesurement-fw-delay: 0.15s;
+					}
+				}
+
+				&:nth-of-type(2) {
+					.fw-set {
+						--mesurement-fw-height: -81vh;
+					}
+				}
+
+				&:last-of-type {
+					--mesurement-fw-height: -79vh;
+					--mesurement-fw-delay: 0.3s;
+				}
+			}
+		}
+
+		&:last-of-type {
+			// Front of the box
+			width: 100%;
+			height: 4rem;
+			padding: 0.5rem 0 0 0.5rem;
+			text-align: center;
+			font-size: 1.75em;
+			font-family: (getMesurements(text-font));
+			background-color: #999;
+		}
+	}
+}
